@@ -47,4 +47,5 @@ VALUES
 
 SELECT todos.*, shared_todos.shared_whith_id
 FROM todos
-LEFT JOIN todos.user_id = [user.id] OR shared_todos.shared_whith_id = [user.id];
+LEFT JOIN shared_todos ON todos.id = shared_todos.todos_id
+WHERE todos.user_id = [user_id] OR shared_todos.shared_whith_id = [user_id];
